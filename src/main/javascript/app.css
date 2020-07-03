@@ -1,0 +1,283 @@
+/*CSS selector: .class, #id, :target, :pseudo-classes (hover, disabled), ::pseudo-elements (first line, first letter).*/
+/*general setting: start---------*/
+input{ /*input of the form of modal dialogs.*/
+    color: #ffffff;
+    background-color: #2c5887;
+    font-size: 18px; /*Most browser's default font size = 18px*/
+    padding: 4px 4px;
+    margin: 4px 0px;
+    border: 1px solid #d8e5f3;
+    border-radius: 5px; /*smaller radius => sharper corner*/
+    box-sizing: border-box;
+}
+input:disabled{
+    color: #425d7a;
+    background-color:#1a3552;
+}
+input::placeholder{
+    color: #b2cbe6;
+}
+/*general setting: end---------*/
+.app {
+    text-align: center;
+    font-family: Sans-serif;
+}
+
+.app-header {
+    color: white;
+    font-size: calc(10px + 2vmin);
+    background-color: #012c42;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-nav {
+    position: fixed;
+    top: 10%;
+}
+
+.app-nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.app-nav li{
+    padding-right: 50px;
+    display: inline;
+}
+
+.app-nav a{
+    color: #61dafb;
+    text-decoration: none; /*use 'none' to remove underlines from hyperlinks.*/
+}
+
+.app-nav li a:hover{
+    color: #ffffff;
+}
+
+.close {
+    color: #ffffff;
+    background: #606061;
+    line-height: 25px; /*make the size of the cell unchanged when adding text 'X' to it.*/
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #00d9ff;
+}
+/*home-page: start --------------------*/
+.homepage-description{
+    font-size: 18px;
+}
+/*home-page: end --------------------*/
+/*tic-tac-toe: start -------------------------------------------------------------------------*/
+.game-board {
+    text-align: center;
+}
+
+.game-cell {
+    /*To make the size of the cell unchanged when adding 'X' or 'O' to the cell by clicking it:
+    border x 2 + padding-left + padding-right + fontSize == width;
+    border x 2 + padding-top + padding-bottom + fontSize == height; */
+    /*float: left;*/
+    color: #ffffff;
+    background: #0073ad;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+    font-size: 33px;
+    text-align: center;
+    padding: 2px 0px 10px 0px;
+    border: 1px solid #7ac1e6;
+    border-collapse: collapse;
+    margin:0px;
+}
+
+.game-cell:hover{
+    background:#00517a;
+}
+
+.game-cell:focus {
+    outline: none;
+    background: #00354f;
+}
+
+.game table {
+    table-layout: auto;
+    width: 100%;
+    margin: 30px 10px 30px 10px; /*top, right, bottom, left*/
+    font-family: Sans-serif;
+}
+
+.game td {
+    border: none;
+    padding: 20px; /*top, right, bottom, left*/
+    vertical-align: top;
+    /*text-align:center;*/
+}
+
+.game tr {
+    color: #ffffff;
+    background-color: transparent;
+    text-align: left;
+    font-size: 18px;
+}
+
+.game caption{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.game-rule {
+    max-width: 600px;
+    font-size: 18px;
+}
+/*tic-tac-toe: end -------------------------------------------------------------------------*/
+/*playerlist: start -------------------------------------------------------------------------*/
+.players{
+    position: fixed;
+    top: 150px;
+    /*overflow:auto;*/
+}
+
+.players caption{
+    caption-side: top;
+    padding: 8px;
+    margin: 4px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.players table {
+    table-layout: auto;
+    width: 100%; /*Make sure the width is large enough to display inline elements completely.*/
+    border-collapse: collapse;
+    margin: 30px 10px 30px 10px; /*top, right, bottom, left*/
+    font-family: Sans-serif;
+    font-size: 18px;
+    text-align: left;
+}
+
+.players td {
+    border: 1px solid #92a8d1;
+    padding: 15px 10px 15px 10px; /*top, right, bottom, left*/
+}
+
+.players th {
+    border: 1px solid #92a8d1;
+    padding: 10px;
+    text-decoration: none; /*remove the bold effect*/
+    color: #00ddff;
+}
+
+.players tr:nth-child(even){
+    color: white;
+    background-color: #005580;
+}
+.players tr:nth-child(odd){
+    color: white;
+    background-color: #004466;
+}
+
+.buttonMagenta, .buttonOrange, .buttonGreen, .buttonBlue, .buttonGray, .buttonGraySquare {
+    color: white;
+    padding: 8px 8px;
+    border: 1px solid #f2f2f2;
+    margin: 0px; /*to adjust margins: use padding of other element(s) that contain the button(s).*/
+    text-align: center;
+    text-decoration: none; /*use 'none' to remove underlines from hyperlinks <a>.*/
+    font-size: 18px;
+}
+.buttonMagenta, .buttonOrange, .buttonGreen, .buttonBlue, .buttonGray, .buttonGraySquare: hover{
+    font-weight: bold;
+}
+.buttonMagenta {background: #cc0066; border-radius: 5px;}
+.buttonMagenta:hover{background:  #660033;}
+
+.buttonOrange{background: #ff751a; border-radius: 5px;}
+.buttonOrange:hover{background: #8f4801;}
+
+.buttonGreen{background: #439e11; border-radius: 5px;}
+.buttonGreen:hover{background: #256302;}
+
+.buttonBlue{background: #0086b3; border-radius: 5px;}
+.buttonBlue:hover{background:  #006080;}
+
+.buttonGray{background: #405972; border-radius: 5px;}
+.buttonGray:hover{background:  #2e4052;}
+
+.buttonGraySquare{background: #405972;}
+.buttonGraySquare:hover{background:  #2e4052;}
+
+.fixedWidth40px {
+    width: 40px;
+}
+
+.modalDialog {
+    /*Usage: <a href = #anchorName>buttonName<a>;
+    anchorName refers to the target element (which should have id = anchorName) in the .js file. */
+    font-family: Sans-serif;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8); /*the color and opacity settings of the background when a modalDialog pops out.*/
+    z-index: 99999; /*stack order; higher order => appear in front of other elements*/
+    opacity:0; /*1: not transparent at all; 0: completely transparent.*/
+    /*Transition: how fast the element pops out. */
+    -webkit-transition: opacity 200ms ease-in; /*Chrome, Safari*/
+    -moz-transition: opacity 200ms ease-in; /*Firefox*/
+    transition: opacity 200ms ease-in; /*IE, etc.*/
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto; /*If click the target, the modalDialog will pop out.*/
+}
+.modalDialog > div { /*direct child node of class "modalDialog"*/
+    color: #ffffff;
+    background: #012c42;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    padding: 0px 30px 30px 30px;
+    border-radius: 10px; /*smaller radius => sharper corner*/
+    border: 1px solid #f2f2f2;
+}
+.page-nav{
+   color: #ffffff;
+   font-size: 18px;
+}
+
+.page-nav button{
+    width: 40px;
+    height: 40px;
+}
+
+.page-nav div{
+    margin: 10px;
+}
+
+.page-nav input{
+    width: 90px;
+}
+
+
+.pink-font{ color: #ff69b4; }
+/*playerlist: end -------------------------------------------------------------------------*/
