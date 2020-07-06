@@ -1,4 +1,10 @@
 # React And Spring Data REST 
+[![Spring](https://img.shields.io/badge/<Spring>-<2.2.4>-<COLOR>.svg)](https://start.spring.io/) 
+[![Java](https://img.shields.io/badge/<Java>-<1.8.0>-<COLOR>.svg)](https://openjdk.java.net/install/)
+[![NodeJS](https://img.shields.io/badge/<Node.js>-<13.5.0>-<COLOR>.svg)](https://nodejs.org/en/)
+[![Made-with-Maven](https://img.shields.io/badge/<Made%20with>-<Maven>-blue.svg)](https://maven.apache.org/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/mastermeow/React-And-Spring-Data-REST)
+
 This is a Spring Data REST application built using Spring MVC and ReactJS. 
 The UI of the application allows users to 
 
