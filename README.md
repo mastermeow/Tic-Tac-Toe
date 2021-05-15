@@ -5,7 +5,7 @@
 [![Made-with-Maven](https://img.shields.io/badge/Made%20with-Maven-blue.svg)](https://maven.apache.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/mastermeow/React-And-Spring-Data-REST)
 
-This is a Spring Data REST application built using Spring MVC and ReactJS. 
+This is a full-stack web application built using Spring MVC and React. 
 The UI of the application allows users to 
 
 * play an interactive web game Tic-Tac-Toe;
