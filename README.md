@@ -1,4 +1,4 @@
-# React And Spring Data REST 
+# Tic-Tac-Toe
 [![Spring](https://img.shields.io/badge/Spring-2.2.4-<COLOR>.svg)](https://start.spring.io/) 
 [![Java](https://img.shields.io/badge/Java-1.8.0-<COLOR>.svg)](https://openjdk.java.net/install/)
 [![NodeJS](https://img.shields.io/badge/Node.js-13.5.0-<COLOR>.svg)](https://nodejs.org/en/)
