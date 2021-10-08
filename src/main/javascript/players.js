@@ -1,4 +1,4 @@
-import 'core-js/stable'; /*The 'core-js/stable' module must be at the top of your entry point*/
+import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,20 +13,15 @@ export default class Players extends React.Component {
         this.urlReplace = '/players/replace-player';
 
     	this.state = {
-    	    players: [],
     	    playerAttributes:['firstName', 'lastName', 'nickName', 'numTicTacToeDraw',
     	    'numTicTacToeLoss', 'numTicTacToeWin', 'score'],
-    	    /*playerAttributes is used in the modal dialogs of creating/updating player.
-    	    Modal dialogs' inputs: firstName, lastName, nickName.*/
+    	    players: [],   /*players to be displayed in player list*/
             pageNumber: 0, /*page number of player list*/
-    	    pageSize: 8, /*page size of player list*/
-    	    totalPages: 0, /*total number of pages of player list*/
-    	    sortBy: 'id', /*parameter on which to sort the players.*/
+    	    pageSize: 8,   /*page size of player list*/
+    	    totalPages: 0, /*number of pages of player list*/
+    	    sortBy: 'id',  /*sorting param of player list.*/
     	};
 
-    	/*Use bind() in constructor to bind the event handles to the component, s.t.
-    	1) the handlers can be passed as callbacks without losing their context (props, states);
-    	2) the handlers can be invoked in the child components.*/
         this.updatePageSize = this.updatePageSize.bind(this);
         this.updatePageNumber = this.updatePageNumber.bind(this);
         this.createPlayer = this.createPlayer.bind(this);
@@ -61,7 +56,6 @@ export default class Players extends React.Component {
                 sortBy: this.state.sortBy,
             }
         }).then(response=>{
-            /*console.log('response=\n', JSON.stringify(response, null, 4));*/
             this.setState({
                 players: response.data.content,
                 pageNumber: response.data.pageable.pageNumber,
@@ -328,8 +322,7 @@ class Player extends React.Component {
 
 /*CreatePlayer Component: start =============================================================*/
 class CreatePlayer extends React.Component {
-    /* Player attributes: firstName, lastName, nickName, numTicTacToeDraw, numTicTacToeLoss, numTicTacToeWin, score.
-    Modal dialog' inputs: firstName, lastName, nickName.*/
+    /*Modal dialog' inputs: firstName, lastName, nickName.*/
 	constructor(props) {
 		super(props);
 		this.refModalInput = {}; /*(object) key-value pairs of refs for grabbing inputs of dialog.*/
@@ -343,18 +336,6 @@ class CreatePlayer extends React.Component {
 		this.props.playerAttributes.forEach(attribute => {
 			newPlayer[attribute] = (attribute.includes('Name'))? this.refModalInput[attribute].current.value.trim(): 0;
 		});
-
-        /*
-		if(newPlayer.firstName.length < 1){
-		    alert('First name cannot be empty or white space(s).');
-		}else if(newPlayer.lastName.length < 1){
-		    alert('Last name cannot be empty or white spaces(s).');
-		}else{
-			this.props.createPlayer(newPlayer);
-    		this.clearInputs();
-    		window.location = '#';
-		}
-		*/
 
 		this.props.createPlayer(newPlayer);
     	this.clearInputs();
@@ -472,8 +453,7 @@ class DeletePlayer extends React.Component {
 
 /*UpdatePlayer Component: start =============================================================*/
 class UpdatePlayer extends React.Component {
-    /* Player attributes: firstName, lastName, nickName, numTicTacToeLoss, numTicTacToeWin, score.
-    Modal dialog' inputs: firstName, lastName, nickName.*/
+    /*Modal dialog' inputs: firstName, lastName, nickName.*/
 	constructor(props) {
 		super(props);
 		this.refModalInput = {}; /*refs for distinguishing different fields of the input.*/
@@ -485,9 +465,9 @@ class UpdatePlayer extends React.Component {
 	handleSubmit(e) {
 	    /*Prevents the default handler.*/
 		e.preventDefault();
+
         /*Extract dialog's inputs.*/
 		const newPlayer = {};
-
 		this.props.playerAttributes.forEach(attribute => {
 		    newPlayer[attribute] = (attribute.includes('Name'))?
 			    this.refModalInput[attribute].current.value.trim() : this.currentPlayer[attribute];
@@ -495,13 +475,11 @@ class UpdatePlayer extends React.Component {
 
 		/*Replace player*/
 		this.props.replacePlayer(this.props.player, newPlayer);
-		/*Navigate away from the dialog to hide it.*/
 
-		/*Set the default value of the modal to the latest values of the player's attributes, which leads to
-		1) Reset the default value of the modal if the input is empty or white spaces;
-		2) Reset the default value of the modal if the input is invalid as it already exists in repo.*/
+        /*Update default inputs of the modal dialog.*/
 		this.resetInputs();
 
+        /*Navigate away from the dialog to hide it.*/
 		window.location = '#';
 	}
 

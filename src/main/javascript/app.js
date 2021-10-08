@@ -5,6 +5,22 @@ import TicTacToe from './tictactoe';
 import Players from './players';
 
 export default class App extends React.Component {
+    constructor(props) {
+    	super(props);
+    	this.state = {
+    	    email: 'weixi.gu@uwaterloo.ca',
+    	    emailSubject: 'Re: Board Game',
+    	    emailBody: '(Any comments on this project?)',
+    	};
+    	this.handleClickEmail = this.handleClickEmail.bind(this);
+    }
+
+    handleClickEmail(e){
+        e.preventDefault();
+        var emailLink = 'mailto:'+this.state.email+'?subject='+this.state.emailSubject+'&body='+this.state.emailBody;
+        window.open(emailLink);
+    }
+
     render(){
         return (
             <BrowserRouter>
@@ -13,7 +29,7 @@ export default class App extends React.Component {
                         <nav className = 'app-nav'>
                             <ul>
                                 <li>
-                                    <Link to='/'>Home</Link>
+                                    <Link to='/'>Introduction</Link>
                                 </li>
                                 <li>
                                     <Link to='/tictactoe'>Tic-Tac-Toe</Link>
@@ -22,7 +38,10 @@ export default class App extends React.Component {
                                     <Link to='/playerlist'>Player List</Link>
                                 </li>
                                 <li>
-                                    <Link to='/about'>About</Link>
+                                    <a href='https://github.com/mastermeow' target='_blank'>GitHub</a>
+                                </li>
+                                <li>
+                                    <button onClick= {this.handleClickEmail}>Email Me</button>
                                 </li>
                             </ul>
                         </nav>
@@ -32,9 +51,6 @@ export default class App extends React.Component {
                             </Route>
                             <Route path='/tictactoe'>
                                 <TicTacToe/>
-                            </Route>
-                            <Route path='/about'>
-                                <About/>
                             </Route>
                             <Route path='/'>
                                 <Home />
@@ -55,35 +71,36 @@ function Home(){
             </div>
             <div align = 'left' className = 'homepage-description'>
                 <p>
-                    This web application allows you to:
+                    This is a full-stack web application built with React and Spring. It allows you to:
                 </p>
                 <p>
-                    1) play an interactive Tic-Tac-Toe game,
+                    1) play an interactive Tic-Tac-Toe game;
                 </p>
                 <p>
-                    2) check the corresponding game results via a player list, and
+                    2) check statistics of players in Player List;
                 </p>
                 <p>
-                    3) create new players / modify and delete existing players.
+                    3) create, edit, or delete player(s) in Player List.
                 </p>
             </div>
         </div>
     );
 }
 
+/*
 class About extends React.Component{
     constructor(props) {
     	super(props);
     	this.state = {
-    	    email: 'w25gu@uwaterloo.ca',
-    	    emailSubject: 'RE: React and Spring Data REST project',
-    	    emailBody: '(Any comments on my project?)',
-    	    buttonText: 'Tell me what do you think about this project :)',
+    	    email: 'weixi.gu@uwaterloo.ca',
+    	    emailSubject: 'Re: Board Game',
+    	    emailBody: '(Any comments on this project?)',
+    	    emailButtonText: 'Email me :)',
     	};
-    	this.handleClick = this.handleClick.bind(this);
+    	this.handleClickEmail = this.handleClickEmail.bind(this);
     }
 
-    handleClick(e){
+    handleClickEmail(e){
         e.preventDefault();
         var emailLink = 'mailto:'+this.state.email+'?subject='+this.state.emailSubject+'&body='+this.state.emailBody;
         window.open(emailLink);
@@ -91,11 +108,11 @@ class About extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>Author: Weixi Gu</h2>
-                <button onClick= {this.handleClick} className = 'buttonGreen'>{this.state.buttonText}</button>
+            <div className = 'about'>
+                <span><button onClick= {this.handleClickEmail} className = 'buttonGreen'>{this.state.emailButtonText}</button></span>
             </div>
         );
     }
 }
+*/
 

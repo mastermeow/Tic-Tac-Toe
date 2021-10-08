@@ -8,7 +8,6 @@ export default class TicTacToe extends React.Component {
 
     constructor(props) {
     	super(props);
-    	/*Note: the state names must match the tags of @JsonProperty from the @Entity class.*/
     	this.urlResetGame = '/tictactoes/reset-game';
     	this.urlSaveMove = '/tictactoes/save-move';
     	this.urlViewPastMove = '/tictactoes/view-prev-move';
@@ -16,20 +15,16 @@ export default class TicTacToe extends React.Component {
         this.urlSaveRecord = '/players/save-record';
 
     	this.state = {
-    	    /*states for creating game: start --- */
     	    winner: null, /*winner = 'X' or 'O' if game is over; null if not. */
-    	    xNext: true, /*true if it's X's turn; false if is O's turn. X plays first.*/
+    	    xNext: true,  /*true if it's X's turn; false if is O's turn. X plays first.*/
     	    board: [[null, null, null], [null, null, null], [null, null, null]], /*an empty board of String primitives*/
     	    numOfMoves: -1, /*total number of moves made in the game so far.*/
     	    numOfMovesResetByTimeTravel: -1, /*move # reset by players when they click a time travel button.*/
-            /*states for creating game: start --- */
 
-    	    /*states used for creating players: start---*/
     	    playerAttributes:['firstName', 'lastName', 'nickName', 'numTicTacToeDraw',
     	    'numTicTacToeLoss', 'numTicTacToeWin', 'score'], /*same as player.js*/
     	    playerX: null,
     	    playerO: null,
-    	    /*states used for creating players: end---*/
     	};
 
     	this.initPlayer = this.initPlayer.bind(this);
@@ -88,8 +83,8 @@ export default class TicTacToe extends React.Component {
             }
             return;
         }
-        /*Revert to previous move if the move# has been reset by clicking a time travel button, then save the new move
-        made by clicking a grid; Otherwise, save the new move directly.*/
+        /*Revert to previous move if the move# has been reset by clicking a time travel button,
+        then save the new move made by clicking a grid; Otherwise, save the new move directly.*/
         if(this.state.numOfMovesResetByTimeTravel < this.state.numOfMoves){
             console.log('Reverting to move #'+this.state.numOfMovesResetByTimeTravel);
             axios({
@@ -231,9 +226,7 @@ export default class TicTacToe extends React.Component {
 
     validPlayerNames(playerX, playerO){
         /* Given PlayerX and PlayerO whose firstName & lastName don't entirely consist of white spaces.
-        Return false if the two players have the same firstName & lastName; return true otherwise.
-        In JavaScript, two strings are strictly equal (===) when they have the same sequence of characters, same length,
-        and same characters in corresponding positions. */
+        Return false if the two players have the same firstName & lastName; return true otherwise.*/
         console.log('Verifying if the two players of the game have different names.');
         const fX = playerX.firstName.toLowerCase().trim();
         const fO = playerO.firstName.toLowerCase().trim();
@@ -274,8 +267,8 @@ export default class TicTacToe extends React.Component {
         }else{
             return(
                 <Game
-                    playerX = {this.state.playerX} /*only for displaying the player info on top of time travel bottons*/
-                    playerO = {this.state.playerO} /*only for displaying the player info on top of time travel bottons*/
+                    playerX = {this.state.playerX} /*only for displaying the player info on top of time travel buttons*/
+                    playerO = {this.state.playerO} /*only for displaying the player info on top of time travel buttons*/
                     xNext = {this.state.xNext}
                     winner = {this.state.winner}
                     board = {this.state.board}
@@ -324,12 +317,7 @@ class CreatePlayer extends React.Component{
 		    if(this.props.initPlayer(newPlayer)){ /*true if playerO and playerX are assigned with different names.*/
 	            console.log('Successfully initialized player.');
                 this.clearInputs();
-                if(this.props.playerX){
-                    /*If both players are created, then navigate away from the dialog to hide it.
-                    Note that the method this.props.initPlayer(PlayerO) is fired after handleSubmit() finishes running,
-                    thus PlayerO will still shown as null at this stage, even though user already input data via the modal
-                    dialog to create PlayerO. Thus we use the nullity of playerX to determine whether the modal dialog
-                    should be closed or not. */
+                if(this.props.playerX){ /*use the nullity of playerX to determine if both players are created.*/
                     window.location = '#';
                 }
 		    }else{

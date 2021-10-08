@@ -1,13 +1,13 @@
 /*CSS selector: .class, #id, :target, :pseudo-classes (hover, disabled), ::pseudo-elements (first line, first letter).*/
-/*general setting: start---------*/
+
 input{ /*input of the form of modal dialogs.*/
     color: #ffffff;
     background-color: #2c5887;
-    font-size: 18px; /*Most browser's default font size = 18px*/
+    font-size: 18px;
     padding: 4px 4px;
     margin: 4px 0px;
     border: 1px solid #d8e5f3;
-    border-radius: 5px; /*smaller radius => sharper corner*/
+    border-radius: 5px;
     box-sizing: border-box;
 }
 input:disabled{
@@ -17,7 +17,7 @@ input:disabled{
 input::placeholder{
     color: #b2cbe6;
 }
-/*general setting: end---------*/
+
 .app {
     text-align: center;
     font-family: Sans-serif;
@@ -58,10 +58,25 @@ input::placeholder{
     color: #ffffff;
 }
 
+.app-nav button{
+    background-color: #012c42;
+    /*background-color: transparent;*/
+    color: #61dafb;
+    border: none;
+    margin: 0px; /*to adjust margins: use padding of other element(s) that contain the button(s).*/
+    text-align: left;
+    text-decoration: none; /*use 'none' to remove underlines from hyperlinks <a>.*/
+    font-size: 27.7px;
+}
+
+.app-nav li button:hover{
+    color: #ffffff;
+}
+
 .close {
     color: #ffffff;
     background: #606061;
-    line-height: 25px; /*make the size of the cell unchanged when adding text 'X' to it.*/
+    line-height: 25px; /*fix the size of the board cells.*/
     position: absolute;
     right: -12px;
     text-align: center;
@@ -79,12 +94,12 @@ input::placeholder{
 .close:hover {
     background: #00d9ff;
 }
-/*home-page: start --------------------*/
+
 .homepage-description{
     font-size: 18px;
 }
-/*home-page: end --------------------*/
-/*tic-tac-toe: start -------------------------------------------------------------------------*/
+
+/*tic-tac-toe: start ---------------------------*/
 .game-board {
     text-align: center;
 }
@@ -147,12 +162,12 @@ input::placeholder{
     max-width: 600px;
     font-size: 18px;
 }
-/*tic-tac-toe: end -------------------------------------------------------------------------*/
-/*playerlist: start -------------------------------------------------------------------------*/
+/*tic-tac-toe: end ---------------------*/
+
+/*player list: start -------------------*/
 .players{
     position: fixed;
     top: 150px;
-    /*overflow:auto;*/
 }
 
 .players caption{
@@ -165,7 +180,7 @@ input::placeholder{
 
 .players table {
     table-layout: auto;
-    width: 100%; /*Make sure the width is large enough to display inline elements completely.*/
+    width: 100%;
     border-collapse: collapse;
     margin: 30px 10px 30px 10px; /*top, right, bottom, left*/
     font-family: Sans-serif;
@@ -280,4 +295,4 @@ input::placeholder{
 
 
 .pink-font{ color: #ff69b4; }
-/*playerlist: end -------------------------------------------------------------------------*/
+/*player list: end ---------------------------------*/
