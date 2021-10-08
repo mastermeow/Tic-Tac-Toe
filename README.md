@@ -17,23 +17,8 @@ This is a full-stack web application built with Spring and React. It allows user
 Run `java -jar board-game-0.0.1-SNAPSHOT.jar` in terminal to execute the .jar file, then visit
 [http://localhost:8080](http://localhost:8080/) in a browser to view the application.
 
-### Project dependencies
-
-The project includes the following dependencies (you can pick the dependencies at https://start.spring.io/):
-
-* **Spring Web**
-
-* **Rest Repositories**
-
-* **Spring Data JPA**
-
-* **H2 Database**
-
-* **Thymeleaf**
-
-* **Lombok**
-
-* **Spring Boot DevTools**
+#### Demo
+Please see the file `demo.gif` for a quick demo of the project.
  
  
 
