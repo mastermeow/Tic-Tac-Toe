@@ -18,7 +18,8 @@ Run `java -jar board-game-0.0.1-SNAPSHOT.jar` in terminal to execute the .jar fi
 [http://localhost:8080](http://localhost:8080/) in a browser to view the application.
 
 #### Demo
-Please see the file `demo.gif` for a quick demo of the project.
+
+![](https://raw.githubusercontent.com/mastermeow/Tic-Tac-Toe/master/demo.gif)
  
  
 
